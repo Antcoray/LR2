@@ -38,4 +38,6 @@ int main() {
     std::cout << "A= " << A <<std::endl;
     std::cout << "B= " << B <<std::endl;
     std::cout << "C= " << C <<std::endl;
+
+    return 0;
 }
