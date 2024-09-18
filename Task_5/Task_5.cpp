@@ -8,9 +8,11 @@ int main() {
     std::cout << "Введите Y " <<std::endl;
     std::cin >> Y;
 
-    bool logic = X > Y;
-
-    std::cout << (logic ?  "Максимальное число - X " : "Максимальное число - Y ") << std::endl;
+    if (X>Y) {
+        std::cout << "Максимальное число - X " << std::endl;
+    } else {
+        std::cout << "Максимальное число - Y " << std::endl;
+    }
 
     return 0;
 
