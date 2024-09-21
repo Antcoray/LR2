@@ -20,5 +20,5 @@ int main () {
     std::cout << "Y= "<< Y << std::endl;
 
     return 0;
-    
+
 }
