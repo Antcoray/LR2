@@ -1,5 +1,3 @@
-// Y=1+(K^2)/(2AB)-B+DC, A=x+sin(p), B=e^K
-// x=7 K=8 p=5 D=2 C=6
 #include <iostream>
 #include <cmath>
 
