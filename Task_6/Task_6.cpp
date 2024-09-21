@@ -1,5 +1,3 @@
-// S=(A^2+b*cos(x))/(D^3+(A+D-b)), где A=D*x/b, b=x+D
-// D=9 x=2
 #include <iostream>
 #include <cmath>
 
