@@ -8,9 +8,13 @@ int main() {
     std::cin >> x;
     std::cout << "Введите D: " << std::endl;
     std::cin >> D;
+
     b = x + D;
     A = D * x / b;
     S = (pow(A,2)+ b * cos(x) ) / (pow(D,3) + (A + D - b));
+
     std::cout << S << std::endl;
+
     return 0;
+
 }
