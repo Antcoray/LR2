@@ -14,11 +14,12 @@ int main() {
     std::cin >> D;
     std::cout << "Введите C: " << std::endl;
     std::cin >> C;
+
     B = exp(K);
     A = x + sin(p);
-    Y=1+((pow(K,2))/(2*A*B))-B+D*C;
+    Y = 1 + ((pow(K,2)) / (2 * A * B)) - B + D * C;
 
     std::cout << "Y= " << Y << std::endl;
 
-
+    return 0;
 }
