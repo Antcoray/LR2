@@ -9,7 +9,7 @@ int main() {
     std::cout << "Введите коэффициенты a, b, c для уравнения ax^4 + bx^2 + c = 0: " << std::endl;
     cin >> a >> b >> c;
 
-    D = b * b - 4 * a * c; 
+    D = b * b - 4 * a * c;
 
     if (D < 0) {
         std::cout << "Нет действительных корней." << std::endl;
