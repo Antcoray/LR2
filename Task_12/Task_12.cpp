@@ -21,35 +21,30 @@ double SQRT(double value) {
     return estimate;
 }
 
+// 1. ax^4 + bx^2 + c = 0;
+
 int main() {
-    double a = 0, b = 0, c = 0, D = 0;
+    double a = 0, b = 0, c = 0, D = 0, y1 = 0, y2 = 0;
     std::cout << "Введите коэффициенты a, b, c для уравнения ax^4 + bx^2 + c = 0: " << std::endl;
     std::cin >> a >> b >> c;
 
     D = b * b - 4 * a * c;
 
-    if (D >= 0) {
-        double y1 = (-b + SQRT(D)) / (2 * a);
-        double y2 = (-b - SQRT(D)) / (2 * a);
-
-        double x1 = SQRT(y1);
-        double x2 = -SQRT(y1);
-
-        std::cout << "x1 = " << x1 << ", x2 = " << x2 << std::endl;
-
-        double x3 = SQRT(y2);
-        double x4 = -SQRT(y2);
-
-        std::cout << "x3 = " << x3 << ", x4 = " << x4 << std::endl;
+    if (D < 0) {
+        std::cout << "Нет действительных корней." << std::endl;
     } else {
-        double real_part = -b / (2 * a);
-        double imaginary_part = SQRT(-D) / (2 * a);
+        y1 = (-b + SQRT(D)) / (2 * a);
+        y2 = (-b - SQRT(D)) / (2 * a);
 
-        std::cout << "Комплексные корни: " << std::endl;
-        std::cout << "x1 = " << real_part << " + " << imaginary_part << "i" << std::endl;
-        std::cout << "x2 = " << real_part << " - " << imaginary_part << "i" << std::endl;
-        std::cout << "x3 = " << real_part << " + " << imaginary_part << "i" << std::endl;
-        std::cout << "x4 = " << real_part << " - " << imaginary_part << "i" << std::endl;
+        if (y1 >= 0) {
+            std::cout << "x1 = " << SQRT(y1) << ", x2 = " << -SQRT(y1) << std::endl;
+        }
+        if (y2 >= 0) {
+            std::cout << "x3 = " << SQRT(y2) << ", x4 = " << -SQRT(y2) << std::endl;
+        }
+        if (y1 < 0 && y2 < 0) {
+            std::cout << "Нет действительных корней." << std::endl;
+        }
     }
 
     return 0;
