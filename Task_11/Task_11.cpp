@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int main() {
     int h1 = 0, min1 = 0, h2 = 0, min2 = 0, duration = 0, totalHours = 0, totalMinutes = 0, startTimeMins = 0, endTimeMins = 0;
 
