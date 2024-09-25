@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 int main() {
     double a = 0, b = 0, c = 0, N = 0, Y = 0;
@@ -15,7 +14,7 @@ int main() {
 
     switch((int)N)
     {
-        case 2: Y = b * c - pow(a,2);
+        case 2: Y = b * c - a * a;
             break;
         case 56: Y = b * c;
             break;
@@ -23,7 +22,7 @@ int main() {
             break;
         case 3: Y = b * c;
             break;
-        default: Y = pow((a + b),3);
+        default: Y = (a + b) * (a + b) * (a + b);
 
     }
 
