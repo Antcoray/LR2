@@ -1,8 +1,46 @@
 #include <iostream>
-#include <cmath>
+
+double arccosTaylor(double x) {
+    if (x < -1.0 || x > 1.0) {
+        return 0;
+    }
+    int accuracy = 10;
+    double result = 3.14159 / 2;
+    double term = x;
+    double x2 = x * x;
+    
+    for (int n = 1; n <= accuracy; ++n) {
+        result -= term;
+        
+        term *= (2 * n - 1) * x2 / (2 * n + 1);
+    }
+
+    return result;
+}
+
+double SQRT(double value) {
+    if (value < 0) {
+        return -1;
+    }
+    
+    if (value == 0) {
+        return 0;
+    }
+
+    double U = value;
+    double accuracy = 1e-7;
+    double estimate = value / 2.0;
+
+    while (std::abs(estimate - U) > accuracy) {
+        U = estimate;
+        estimate = (U + value / U) / 2.0;
+    }
+
+    return estimate;
+}
 
 double distance(double x1, double y1, double x2, double y2) {
-    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+    return SQRT((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
 double areaByCoordinates(double x1, double y1, double x2, double y2, double x3, double y3) {
@@ -11,7 +49,7 @@ double areaByCoordinates(double x1, double y1, double x2, double y2, double x3, 
 
 double areaByHeron(double a, double b, double c) {
     double p = (a + b + c) / 2.0;
-    return sqrt(p * (p - a) * (p - b) * (p - c));
+    return SQRT(p * (p - a) * (p - b) * (p - c));
 }
 
 double areaByVectors(double x1, double y1, double x2, double y2, double x3, double y3) {
@@ -19,12 +57,12 @@ double areaByVectors(double x1, double y1, double x2, double y2, double x3, doub
 }
 
 double median(double a, double b, double c) {
-    return sqrt(2 * (b * b + c * c) - a * a) / 2.0;
+    return SQRT(2 * (b * b + c * c) - a * a) / 2.0;
 }
 
 double bisectrisa(double a, double b, double c) {
     double p = (a + b + c) / 2.0;
-    return (2.0 * sqrt(a * b * p * (p - c))) / (a + b);
+    return (2.0 * SQRT(a * b * p * (p - c))) / (a + b);
 }
 
 double height(double side, double area) {
@@ -41,7 +79,7 @@ double circumradius(double a, double b, double c, double area) {
 }
 
 double angle(double a, double b, double c) {
-    return acos((b * b + c * c - a * a) / (2 * b * c)) * 180.0 / M_PI;
+    return arccosTaylor((b * b + c * c - a * a) / (2 * b * c)) * 180.0 / 3.14159;
 }
 
 int main() {
@@ -103,7 +141,7 @@ int main() {
 
     std::cout << "Углы треугольника: A = " << angle_A << " градусов, B = " << angle_B << " градусов, C = " << angle_C << " градусов" << std::endl;
 
-    std::cout << "Углы в радианах: A = " << angle_A * M_PI / 180.0 << ", B = " << angle_B * M_PI / 180.0 << ", C = " << angle_C * M_PI / 180.0 << std::endl;
+    std::cout << "Углы в радианах: A = " << angle_A * 3.14159 / 180.0 << ", B = " << angle_B * 3.14159 / 180.0 << ", C = " << angle_C * 3.14159 / 180.0 << std::endl;
 
     double r_in = inradius(a, b, c, areaByCo);
     double r_circ = circumradius(a, b, c, areaByCo);
@@ -111,8 +149,8 @@ int main() {
     std::cout << "Радиус вписанной окружности: " << r_in << std::endl;
     std::cout << "Радиус описанной окружности: " << r_circ << std::endl;
 
-    double length_in = 2 * M_PI * r_in;
-    double length_circ = 2 * M_PI * r_circ;
+    double length_in = 2 * 3.14159 * r_in;
+    double length_circ = 2 * 3.14159 * r_circ;
 
     std::cout << "Длина вписанной окружности: " << length_in << std::endl;
     std::cout << "Длина описанной окружности: " << length_circ << std::endl;
