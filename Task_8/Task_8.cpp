@@ -1,18 +1,17 @@
 #include <iostream>
 
-double arccosTaylor(double x) {
-    if (x < -1.0 || x > 1.0) {
+double arccosTaylor(double value) {
+    if (value < -1.0 || value > 1.0) {
         return 0;
     }
     int accuracy = 10;
     double result = 3.14159 / 2;
-    double term = x;
-    double x2 = x * x;
+    double ch = value;
+    double value2 = value * value;
     
-    for (int n = 1; n <= accuracy; ++n) {
-        result -= term;
-        
-        term *= (2 * n - 1) * x2 / (2 * n + 1);
+    for (int i = 1; i <= accuracy; ++i) {
+        result -= ch;
+        ch *= (2 * i - 1) * value2 / (2 * i + 1);
     }
 
     return result;
