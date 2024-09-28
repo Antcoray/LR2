@@ -40,6 +40,50 @@ double cube(double value) {
     return U;
 }
 
+double factorial(int value) {
+    double result = 1;
+    for (int i = 2; i <= value; ++i) {
+        result *= i;
+    }
+    return result;
+}
+
+double stepen(double value, int st) {
+    double result = 1;
+    for (int i = 0; i < st; ++i) {
+        result *= value;
+    }
+    return result;
+}
+
+double cosTaylor(double value) {
+    double result = 0;
+    int accuracy = 10;
+    for (int i = 0; i < accuracy; ++i) {
+        double ch = (i % 2 == 0 ? 1 : -1) * stepen(value, 2 * i) / factorial(2 * i);
+        result += ch;
+    }
+
+    return result;
+}
+
+double arccosTaylor(double value) {
+    if (value < -1.0 || value > 1.0) {
+        return 0;
+    }
+    int accuracy = 10;
+    double result = 3.14159 / 2;
+    double ch = value;
+    double value2 = value * value;
+    
+    for (int i = 1; i <= accuracy; ++i) {
+        result -= ch;
+        ch *= (2 * i - 1) * value2 / (2 * i + 1);
+    }
+
+    return result;
+}
+
 int main() {
     double p = 0, q = 0;
 
@@ -47,11 +91,23 @@ int main() {
     std::cin >> p >> q;
 
     double Q = (p / 3) * (p / 3) * (p / 3) + (q / 2) * (q / 2);
-    if(Q > 0){
-    double x = cube(-q / 2 + SQRT(Q)) + cube(-q / 2 - SQRT(Q));
-    std::cout << "x = " << x << std::endl;
-    } else {
-    std::cout << "Корни уравнения являются комплексными числами" << std::endl;
+    if (Q > 0){
+        double x = cube(-q / 2 + SQRT(Q)) + cube(-q / 2 - SQRT(Q));
+        std::cout << "x = " << x << std::endl;
+    }
+    if (Q == 0) {
+        double x1 = 2 * cube(-q / 2);
+        double x2 = -cube(-q / 2);
+        std::cout << "x1 = " << x1 << std::endl;
+        std::cout << "x2 = " << x2 << std::endl;
+    }
+    if (Q < 0) {
+        double x0 = 2 * SQRT(-p / 3) * cosTaylor(arccosTaylor(3*q/(2*p)*SQRT(-3 / p))/ 3);
+        double x1 = 2 * SQRT(-p / 3) * cosTaylor((arccosTaylor(3*q/(2*p)*SQRT(-3 / p))+2*3.14159*1) / 3);
+        double x2 = 2 * SQRT(-p / 3) * cosTaylor((arccosTaylor(3*q/(2*p)*SQRT(-3 / p))+2*3.14159*2) / 3);
+        std::cout << "x1 = " << x0 << std::endl;
+        std::cout << "x2 = " << x1 << std::endl;
+        std::cout << "x3 = " << x2 << std::endl;
     }
     return 0;
 }
