@@ -29,10 +29,15 @@ int main() {
     std::cout << "Введите K: " << std::endl;
     std::cin >> K;
 
+    if (A > B && A > C){
     A-=K;
+    }
+    if (B > A && B > C){
     B-=K;
+    }
+    if (C > A && C > B){
     C-=K;
-
+    }
     std::cout << "X= " << X <<std::endl;
     std::cout << "Y= " << Y <<std::endl;
     std::cout << "A= " << A <<std::endl;
