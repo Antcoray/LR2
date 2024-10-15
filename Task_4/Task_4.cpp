@@ -2,47 +2,34 @@
 
 int main() {
 
-    int X = 0, Y = 0;
-
-    std::cout << "Введите X: " << std::endl;
-    std::cin >> X;
-    std::cout << "Введите Y: " << std::endl;
-    std::cin >> Y;
-
-    if (X<Y) {
-        X=0;
-    } else if (X>Y) {
-        Y=0;
+    long long int X = 0, Y = 0;
+    std::cout << "Введите X, Y " << std::endl;
+    std::cin >> X >> Y;
+    
+    if (X < Y) {
+        X = 0;
+    } else if (X > Y) {
+        Y = 0;
     } else {
-        X=0;
-        Y=0;
+        X = 0;
+        Y = 0;
     }
-
-    float A=0, B=0, C=0, K=0;
-
-    std::cout << "Введите A: " << std::endl;
-    std::cin >> A;
-    std::cout << "Введите B: " << std::endl;
-    std::cin >> B;
-    std::cout << "Введите C: " << std::endl;
-    std::cin >> C;
-    std::cout << "Введите K: " << std::endl;
-    std::cin >> K;
-
-    if (A > B && A > C){
-    A-=K;
+    
+    long double A = 0, B = 0, C = 0, K = 0;
+    std::cout << "Введите A, B, C, K " << std::endl;
+    std::cin >> A >> B >> C >> K;
+    
+    if (A > B && A > C) {
+    A -= K;
+    } else if (B > A && B > C) {
+    B -= K;
+    } else if (C > A && C > B) {
+    C -= K;
     }
-    if (B > A && B > C){
-    B-=K;
-    }
-    if (C > A && C > B){
-    C-=K;
-    }
-    std::cout << "X= " << X <<std::endl;
-    std::cout << "Y= " << Y <<std::endl;
-    std::cout << "A= " << A <<std::endl;
-    std::cout << "B= " << B <<std::endl;
-    std::cout << "C= " << C <<std::endl;
-
+    
+    std::cout << "X, Y = " << X << " " << Y << std::endl;;
+    std::cout << "A, B, C = " << A << " " << B << " " << C << " " << std::endl;
+    
     return 0;
 }
+
