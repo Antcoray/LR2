@@ -1,7 +1,7 @@
 #include <iostream>
 
 int main() {
-    float X=0, Y=0;
+    double X=0, Y=0;
 
     std::cout << "Введите X " <<std::endl;
     std::cin >> X;

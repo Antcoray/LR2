@@ -2,15 +2,15 @@
 
 int main() {
 
-    float x = 0;
-    float y = 0;
-    float z = 0;
+    double x = 0;
+    double y = 0;
+    double z = 0;
 
-    std::cout << "Ведите x: " << std::endl;
+    std::cout << "Введите x: " << std::endl;
     std::cin >> x;
-    std::cout << "Ведите y: " << std::endl;
+    std::cout << "Введите y: " << std::endl;
     std::cin >> y;
-    std::cout << "Ведите z: " << std::endl;
+    std::cout << "Введите z: " << std::endl;
     std::cin >> z;
 
     if (x<y+z && y<x+z && z<x+y) {
